@@ -1,0 +1,266 @@
+$green: #95f084;
+$yellow: #ffe695;
+$orange: #ffaf6a;
+$peach-red: #ff5757;
+$purple: #9777ff;
+$wine-red: #ad1774;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background: #f0f0f0;
+}
+
+.background-green{
+  background: $green;
+}
+
+.background-yellow{
+  background: $yellow;
+}
+
+.background-orange{
+  background: $orange;
+}
+
+.background-peach-red{
+  background: $peach-red;
+}
+
+.background-purple{
+  background: $purple;
+}
+
+.background-wine-red{
+  background: $wine-red;
+}
+
+#app {
+  width: 1110px;
+  margin: 0 auto;
+}
+
+.top-wrapper {
+  width: 1110px;
+  margin: 0 auto;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  .left {
+    display: inline-block;
+    width: 350px;
+    h1 {
+      font-size: 40px;
+      margin: 0 0 8px 0;
+    }
+
+    #location {
+      width: 350px;
+      height: 56px;
+      border: solid 3px #000000;
+      font-size: 24px;
+    }
+  }
+
+  .right {
+    display: inline-block;
+    width: 730.32px;
+    height: 110px;
+    margin-left: 30px;
+    ul {
+      margin: 0;
+      padding: 0;
+      letter-spacing: -5px;
+      border: 3px solid #000000;
+      display: flex;
+      li {
+        letter-spacing: normal;
+        display: inline-block;
+        width: 120.67px;
+        height: 110px;
+        background: red;
+        border-right: 3px solid #000000;
+        font-size: 16px;
+        font-weight: bold;
+        p {
+          text-align: center;
+          padding: 4px 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .li-top {
+          margin: 0;
+          height: 54px;
+          border-bottom: 3px solid #000000;
+        }
+
+        .li-bottom {
+          margin: 0;
+          height: 56px;
+          background: white;
+        }
+      }
+
+      li:first-of-type .li-top {
+        background: $green;
+      }
+
+      li:nth-of-type(2) .li-top {
+        background: $yellow;
+      }
+
+      li:nth-of-type(3) .li-top {
+        background: $orange;
+      }
+
+      li:nth-of-type(4) .li-top {
+        background: $peach-red;
+      }
+
+      li:nth-of-type(5) .li-top {
+        background: $purple;
+      }
+
+      li:last-child .li-top {
+        background: $wine-red;
+      }
+
+      li:last-child {
+        border: 0;
+      }
+    }
+  }
+}
+
+.separation {
+  display: flex;
+  margin: 30px 0;
+  height: 54px;
+  align-items: center;
+  font-weight: bold;
+  white-space: nowrap;
+  .separation-city {
+    width: 108px;
+    font-size: 36px;
+    font-weight: bold;
+    margin-right: 8px;
+  }
+
+  .separation-dashed {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .separation-dashed::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border: 1px dashed black;
+  }
+
+  .update-time {
+    font-size: 16px;
+    width: 137px;
+    height: 22px;
+    line-height: 22px;
+    margin: 0 22px 0 12px;
+  }
+}
+
+.bottom-wrapper {
+  margin-top: 40px;
+  display: flex;
+}
+
+.information {
+  width: 350px;
+  border: 3px solid #000;
+}
+
+
+.card {
+  display: flex;
+  font-weight: bold;
+  text-align: center;
+  width: 348px;
+  height: 97px;
+  border-bottom: 3px solid #000;
+  cursor: pointer;
+  .location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 190px;
+    font-size: 36px;
+    border-right: 3px solid #000;
+  }
+  .number {
+    padding: 22px 30px;
+    width: 160px;
+    font-size: 48px;
+    line-height: 48px;
+  }
+}
+
+
+ul.detail {
+  margin: 0;
+  padding: 30px;
+  li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    padding: 18px 0;
+    border-bottom: 1px solid #000;
+    .name,
+    .detail-number {
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .name {
+      margin-right: 8px;
+    }
+    .unit {
+      flex: 1 0 0;
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+  li:first-child {
+    padding-top: 0;
+  }
+
+  li:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+ul.card-section{
+  height: 535px;
+  padding: 0;
+  margin: 0;
+
+  .card{
+    border: 3px solid #000;
+  }
+  
+  li{
+    display: flex;
+    float: left;
+    margin: 0 0 20px 20px;
+    box-shadow: 3px 5px 0 0 gray;
+    .flex-wrapper{
+      display: flex;
+    }
+  }
+}

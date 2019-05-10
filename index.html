@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Taiwan Air Indicator</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.bootcss.com/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="top-wrapper">
+        <div class="left">
+          <h1>空氣品質指標(AQI)</h1>
+          <select id="location" v-model="selectCounty">
+            <option value="" disabled>請選擇地區</option>
+            <option :value="item" v-for="item in county">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+        <div class="right">
+          <ul>
+            <li>
+              <p class="li-top">0~50</p>
+              <p class="li-bottom">普通</p>
+            </li>
+            <li>
+              <p class="li-top">51~100</p>
+              <p class="li-bottom">良好</p>
+            </li>
+            <li>
+              <p class="li-top">101～150</p>
+              <p class="li-bottom">對敏感族群<br />不健康</p>
+            </li>
+            <li>
+              <p class="li-top">151～200</p>
+              <p class="li-bottom">對所有族群<br />不健康</p>
+            </li>
+            <li>
+              <p class="li-top">201～300</p>
+              <p class="li-bottom">非常不健康</p>
+            </li>
+            <li>
+              <p class="li-top">301～400</p>
+              <p class="li-bottom">危害</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="separation">
+        <div class="separation-city">
+          {{ selectCounty || "未指定" }}
+        </div>
+        <div class="separation-dashed"></div>
+        <div class="update-time">
+          {{ datas[0].PublishTime }}
+        </div>
+        <span>
+          更新
+        </span>
+      </div>
+      <div class="bottom-wrapper">
+        <div class="information">
+          <div class="card">
+            <div class="location">{{ information.SiteName }}</div>
+            <div class="number" :class="dependBackground(information.Status)" style="width: 154px;">{{ information.AQI }}</div>
+          </div>
+          <ul class="detail">
+            <li>
+              <span class="name">臭氧</span><span class="unit">O3 (ppb)</span
+              ><span class="detail-number">{{information.O3}}</span>
+            </li>
+            <li>
+              <span class="name">懸浮微粒</span><span class="unit">PM10 (μg/m³)</span
+              ><span class="detail-number">{{information.PM10}}</span>
+            </li>
+            <li>
+              <span class="name">細懸浮微粒</span><span class="unit">PM2.5 (μg/m³)</span
+              ><span class="detail-number">{{information["PM2.5"]}}</span>
+            </li>
+            <li>
+              <span class="name">一氧化碳</span><span class="unit">CO (ppm)</span
+              ><span class="detail-number">{{information.CO}}</span>
+            </li>
+            <li>
+              <span class="name">二氧化硫</span><span class="unit">SO2 (ppb)</span
+              ><span class="detail-number">{{information.SO2}}</span>
+            </li>
+            <li>
+              <span class="name">二氧化氮</span><span class="unit">NO2 (ppb)</span
+              ><span class="detail-number">{{information.NO2}}</span>
+            </li>
+          </ul>
+        </div>
+        <ul class="card-section">
+            <li v-for="item in filterDatas" class="card hvr-float-shadow" @click="changeInformation(item)" v-if="item.AQI" >
+                <div class="location">{{ item.SiteName }}</div>
+                <div class="number" :class="dependBackground(item.Status)">{{ item.AQI }}</div>
+            </li>
+            </ul>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
