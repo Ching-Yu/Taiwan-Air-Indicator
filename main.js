@@ -21,6 +21,7 @@ var app = new Vue({
           vm.county.push(response.data[i].County);
         }
         vm.county = this.filterData(vm.county);
+        vm.removeLoading();
       });
     },
     filterData: function(array) {
@@ -55,6 +56,9 @@ var app = new Vue({
           return (background = "background-wine-red");
           break;
       }
+    },
+    removeLoading(){
+        document.body.removeChild(document.getElementById('Loading'));
     }
   },
   computed: {

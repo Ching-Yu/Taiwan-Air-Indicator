@@ -14,27 +14,27 @@ body {
   background: #f0f0f0;
 }
 
-.background-green{
+.background-green {
   background: $green;
 }
 
-.background-yellow{
+.background-yellow {
   background: $yellow;
 }
 
-.background-orange{
+.background-orange {
   background: $orange;
 }
 
-.background-peach-red{
+.background-peach-red {
   background: $peach-red;
 }
 
-.background-purple{
+.background-purple {
   background: $purple;
 }
 
-.background-wine-red{
+.background-wine-red {
   background: $wine-red;
 }
 
@@ -185,7 +185,6 @@ body {
   border: 3px solid #000;
 }
 
-
 .card {
   display: flex;
   font-weight: bold;
@@ -209,7 +208,6 @@ body {
     line-height: 48px;
   }
 }
-
 
 ul.detail {
   margin: 0;
@@ -245,22 +243,76 @@ ul.detail {
   }
 }
 
-ul.card-section{
+ul.card-section {
   height: 535px;
   padding: 0;
   margin: 0;
 
-  .card{
+  .card {
     border: 3px solid #000;
   }
-  
-  li{
+
+  li {
     display: flex;
     float: left;
     margin: 0 0 20px 20px;
     box-shadow: 3px 5px 0 0 gray;
-    .flex-wrapper{
+    .flex-wrapper {
       display: flex;
     }
   }
+}
+
+// LOADING
+#Loading {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  z-index: 100;
+}
+@-webkit-keyframes ball-beat {
+  50% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes ball-beat {
+  50% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.ball-beat > div {
+  background-color: #279fcf;
+  width: 15px;
+  height: 15px;
+  border-radius: 100% !important;
+  margin: 2px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  display: inline-block;
+  -webkit-animation: ball-beat 0.7s 0s infinite linear;
+  animation: ball-beat 0.7s 0s infinite linear;
+}
+.ball-beat > div:nth-child(2n-1) {
+  -webkit-animation-delay: 0.35s !important;
+  animation-delay: 0.35s !important;
 }

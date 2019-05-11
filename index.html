@@ -9,10 +9,20 @@
       href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"
       rel="stylesheet"
     />
-    <link href="https://cdn.bootcss.com/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
+    <link
+      href="https://cdn.bootcss.com/hover.css/2.3.1/css/hover-min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
+    <div id="Loading">
+      <div class="loader-inner ball-beat">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <div id="app">
       <div class="top-wrapper">
         <div class="left">
@@ -69,41 +79,59 @@
         <div class="information">
           <div class="card">
             <div class="location">{{ information.SiteName }}</div>
-            <div class="number" :class="dependBackground(information.Status)" style="width: 154px;">{{ information.AQI }}</div>
+            <div
+              class="number"
+              :class="dependBackground(information.Status)"
+              style="width: 154px;"
+            >
+              {{ information.AQI }}
+            </div>
           </div>
           <ul class="detail">
             <li>
               <span class="name">臭氧</span><span class="unit">O3 (ppb)</span
-              ><span class="detail-number">{{information.O3}}</span>
+              ><span class="detail-number">{{ information.O3 }}</span>
             </li>
             <li>
-              <span class="name">懸浮微粒</span><span class="unit">PM10 (μg/m³)</span
-              ><span class="detail-number">{{information.PM10}}</span>
+              <span class="name">懸浮微粒</span
+              ><span class="unit">PM10 (μg/m³)</span
+              ><span class="detail-number">{{ information.PM10 }}</span>
             </li>
             <li>
-              <span class="name">細懸浮微粒</span><span class="unit">PM2.5 (μg/m³)</span
-              ><span class="detail-number">{{information["PM2.5"]}}</span>
+              <span class="name">細懸浮微粒</span
+              ><span class="unit">PM2.5 (μg/m³)</span
+              ><span class="detail-number">{{ information["PM2.5"] }}</span>
             </li>
             <li>
-              <span class="name">一氧化碳</span><span class="unit">CO (ppm)</span
-              ><span class="detail-number">{{information.CO}}</span>
+              <span class="name">一氧化碳</span
+              ><span class="unit">CO (ppm)</span
+              ><span class="detail-number">{{ information.CO }}</span>
             </li>
             <li>
-              <span class="name">二氧化硫</span><span class="unit">SO2 (ppb)</span
-              ><span class="detail-number">{{information.SO2}}</span>
+              <span class="name">二氧化硫</span
+              ><span class="unit">SO2 (ppb)</span
+              ><span class="detail-number">{{ information.SO2 }}</span>
             </li>
             <li>
-              <span class="name">二氧化氮</span><span class="unit">NO2 (ppb)</span
-              ><span class="detail-number">{{information.NO2}}</span>
+              <span class="name">二氧化氮</span
+              ><span class="unit">NO2 (ppb)</span
+              ><span class="detail-number">{{ information.NO2 }}</span>
             </li>
           </ul>
         </div>
         <ul class="card-section">
-            <li v-for="item in filterDatas" class="card hvr-float-shadow" @click="changeInformation(item)" v-if="item.AQI" >
-                <div class="location">{{ item.SiteName }}</div>
-                <div class="number" :class="dependBackground(item.Status)">{{ item.AQI }}</div>
-            </li>
-            </ul>
+          <li
+            v-for="item in filterDatas"
+            class="card hvr-float-shadow"
+            @click="changeInformation(item)"
+            v-if="item.AQI"
+          >
+            <div class="location">{{ item.SiteName }}</div>
+            <div class="number" :class="dependBackground(item.Status)">
+              {{ item.AQI }}
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
