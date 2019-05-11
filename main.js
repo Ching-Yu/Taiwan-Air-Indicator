@@ -15,7 +15,6 @@ var app = new Vue({
         url:
           "https://script.googleusercontent.com/macros/echo?user_content_key=lFKV-uRxj23J5cUQ1hjalxvdb0BESkFGi0y2IwKJRSfrPXfTb9LpXCrLNJP52UFrCmdbdoiVW6neepRiUYYKb0FivvJTw_JMOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHa_xrjaoASiGvAeahWvkZTb2bi7JE1b5KDYZAj9vNTABfrJVLrDbFSoVp0Q3Zel6XzMPh_kljTXl7NHEvd_4-pQQlL1xe6QhjkO6i_s9crweZ8nzYNsx9xivbeRY3r6HNWwCJp59WPWboshFyOeiXM7zHZQ206ClGshu0XK1b9qtD&lib=M2KXVg-uR3n9Al0N_7AoYUEV_H-FNRPhS"
       }).then(response => {
-        console.log("success");
         vm.datas = response.data;
         for (var i = 0; i < response.data.length; i++) {
           vm.county.push(response.data[i].County);
